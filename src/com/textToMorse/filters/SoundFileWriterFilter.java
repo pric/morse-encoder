@@ -12,7 +12,7 @@ public class SoundFileWriterFilter extends Thread {
     private AudioFormat audioFormat;
     private ByteArrayOutputStream fileContent;
     private String fileName;
-    private Timer timer;
+    private  Timer timer;
 
     private final static Integer DOT_LENGTH = 1000;
     private final static Integer BAR_LENGTH = 3 * DOT_LENGTH;
@@ -25,7 +25,7 @@ public class SoundFileWriterFilter extends Thread {
         try {
 
             this.inputPipe = new PipedReader();
-            this.audioFormat = new AudioFormat(8000f, 8, 1, true, false);
+            this.audioFormat = new AudioFormat(10000f, 8, 1, true, false);
             this.fileContent = new ByteArrayOutputStream();
             this.fileName = fileName;
             this.timer = timer;
@@ -58,6 +58,7 @@ public class SoundFileWriterFilter extends Thread {
     }
 
     private void saveFile(String filename) throws IOException, LineUnavailableException, UnsupportedAudioFileException {
+
         InputStream byteArray = new ByteArrayInputStream(this.fileContent.toByteArray());
 
         AudioInputStream ais = new AudioInputStream(byteArray, this.audioFormat, (long) this.fileContent.toByteArray().length);

@@ -16,6 +16,6 @@ public class Timer {
 
         final long executionTime = endTime - startTime;
 
-        System.out.println(String.format("\n\n The execution took %s ns", executionTime));
+        System.out.println(String.format("\n\n The execution took %s ms", (executionTime/1000000f)));
     }
 }

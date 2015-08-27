@@ -39,8 +39,10 @@ public class FileReaderFilter extends Thread {
 
             while ((readByte = fileInputStream.read()) != -1) {
 
-                outputPipe.write(readByte);
-                outputPipe.flush();
+                if (readByte != '\n') {
+                    outputPipe.write(readByte);
+                    outputPipe.flush();
+                }
             }
 
             outputPipe.close();
