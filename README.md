@@ -1,5 +1,5 @@
 # Morse Encoder
-A morse encoder based on the pipe and filter architecture. The data goes through 5 major filters running on different threads:
+A morse encoder based on the pipe and filter architecture. The data goes through 4 major filters running on different threads:
 
 - *FileReaderFilter:* Reads the file and transmit the data byte by byte to the output pipe
 - *MorseFilter:* Translates the bytes received from the input pipe to a morse sequence. The morse sequence is passed by signal ('-', '.', ' ') to the output pipes. Note that this specific filter will split the signal in two output pipes.
